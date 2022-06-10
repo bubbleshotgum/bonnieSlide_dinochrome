@@ -1,0 +1,71 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+@font-face {
+    font-family: "dinpro"; 
+    src: url("fonts/dinpro_light.otf") format("truetype"); 
+    font-weight: 300; 
+} 
+@font-face {
+    font-family: "dinpro"; 
+    src: url("fonts/dinpro_medium.otf") format("truetype"); 
+    font-weight: 700; 
+}
+body {
+    font-family: "dinpro";
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.world {
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.score {
+    position: absolute;
+    font-size: 3vmin;
+    top: 1vmin;
+    right: 1vmin;
+}
+.start_screen {
+    position: absolute;
+    font-size: 5vmin;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.hide {
+    display: none;
+}
+.sand {
+    --left: 0;
+    position: absolute;
+    width: 300%;
+    bottom: 0;
+    left: calc(var(--left) * 1%);
+    height: 20%;
+}
+.bonnie {
+    --bottom: 5;
+    position: absolute;
+    left: 1%;
+    height: 30%;
+    bottom: calc(var(--bottom) * 1%);
+}
+.palm {
+    
+    bottom: 8%;
+    /* --left: 0; */
+    position: absolute;
+    left: calc(var(--left) * 1%);
+    height: 23%;
+}
