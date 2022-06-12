@@ -61,13 +61,12 @@ function checkLose() {
 
 function isCollision(rect1, rect2) {
     return (
-        rect1.left < rect2.right &&
-        rect1.top < rect2.bottom &&
-        rect1.right > rect2.left &&
-        rect1.bottom > rect2.top 
-
+        rect1.left < rect2.right
+        &&
+        rect1.right > rect2.left
+        &&
+        rect1.top < rect2.bottom
     )
-
 }
 function updateScore(delta) {
     score += delta * 0.01
@@ -111,3 +110,4 @@ function setPixelToWorldScale() {
     worldElem.style.height = `${world_height * worldToPixelScale}px`
 }
 
+window.addEventListener("contextmenu", e => e.preventDefault())
