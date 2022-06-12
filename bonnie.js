@@ -29,6 +29,10 @@ export function updateBonnie(delta, speedScale) {
     handleJump(delta)
 }
 
+export function getBonnie() {
+    return bonnieElem
+}
+
 export function getBonnieRect() {
     return bonnieElem.getBoundingClientRect()
 }

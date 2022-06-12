@@ -7,13 +7,16 @@ import {
     updateBonnie, 
     setupBonnie, 
     getBonnieRect, 
-    setBonnieLose
+    setBonnieLose,
+    getBonnie
 } from './bonnie.js'
 
 import {updatePalm, 
     setupPalm, 
-    getPalmRects
+    getPalmRects,
+    getPalms
 } from './palm.js'
+import { getCustomProperty } from './updateCustomProperty.js'
 
 
 const world_width = 100
@@ -45,8 +48,10 @@ function update(time) {
     updateBonnie(delta, speedScale)
     updatePalm(delta, speedScale)
 
+    checkPalmBorderFadeOnDelete()
+
     updatespeedScale(delta)
-    updateScore(delta)
+    updateScore()
 
     if(checkLose()) return handleLose()
 
@@ -68,9 +73,20 @@ function isCollision(rect1, rect2) {
         rect1.top < rect2.bottom
     )
 }
-function updateScore(delta) {
-    score += delta * 0.01
-    scoreElem.textContent = Math.floor(score)
+
+function checkPalmBorderFadeOnDelete() {
+    getPalms().forEach(palm => {
+        if(palm.getBoundingClientRect().right < 0)
+        {
+            palm.remove()
+            score++
+        }
+    })
+}
+
+
+function updateScore() {
+    scoreElem.textContent = score
 }
 
 function updatespeedScale(delta) {
