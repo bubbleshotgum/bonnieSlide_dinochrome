@@ -7,13 +7,16 @@ import {
     updateBonnie, 
     setupBonnie, 
     getBonnieRect, 
-    setBonnieLose
+    setBonnieLose,
+    getBonnie
 } from './bonnie.js'
 
 import {updatePalm, 
     setupPalm, 
-    getPalmRects
+    getPalmRects,
+    getPalms
 } from './palm.js'
+import { getCustomProperty } from './updateCustomProperty.js'
 
 
 const world_width = 100
@@ -45,8 +48,10 @@ function update(time) {
     updateBonnie(delta, speedScale)
     updatePalm(delta, speedScale)
 
+    checkPalmBorderFadeOnDelete()
+
     updatespeedScale(delta)
-    updateScore(delta)
+    updateScore()
 
     if(checkLose()) return handleLose()
 
@@ -61,17 +66,27 @@ function checkLose() {
 
 function isCollision(rect1, rect2) {
     return (
-        rect1.left < rect2.right &&
-        rect1.top < rect2.bottom &&
-        rect1.right > rect2.left &&
-        rect1.bottom > rect2.top 
-
+        rect1.left < rect2.right
+        &&
+        rect1.right > rect2.left
+        &&
+        rect1.top < rect2.bottom
     )
-
 }
-function updateScore(delta) {
-    score += delta * 0.01
-    scoreElem.textContent = Math.floor(score)
+
+function checkPalmBorderFadeOnDelete() {
+    getPalms().forEach(palm => {
+        if(palm.getBoundingClientRect().right < 0)
+        {
+            palm.remove()
+            score++
+        }
+    })
+}
+
+
+function updateScore() {
+    scoreElem.textContent = score
 }
 
 function updatespeedScale(delta) {
@@ -111,3 +126,4 @@ function setPixelToWorldScale() {
     worldElem.style.height = `${world_height * worldToPixelScale}px`
 }
 
+window.addEventListener("contextmenu", e => e.preventDefault())

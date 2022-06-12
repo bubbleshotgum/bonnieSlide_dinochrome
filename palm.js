@@ -9,7 +9,7 @@ const palm_interval_min = 1500
 const palm_interval_max = 3000
 const worldElem = document.querySelector('[data-world]')
 
-let nextPalmTime
+let nextPalmTime = null
 export function setupPalm() {
     nextPalmTime = palm_interval_min
     document.querySelectorAll('[data-palm]').forEach(palm => {
@@ -20,10 +20,6 @@ export function setupPalm() {
 export function updatePalm(delta, speedScale) {
     document.querySelectorAll('[data-palm]').forEach(palm => {
         incrementCustomProperty(palm, "--left", delta * speedScale * speed * - 1)
-
-        if (getCustomProperty(palm, "--left") <= -100) {
-            palm.remove()
-        }
     })
 
     if (nextPalmTime <= 0) {
@@ -34,9 +30,13 @@ export function updatePalm(delta, speedScale) {
 }
 
 export function getPalmRects() {
-    return [...document.querySelectorAll('[data-palm]')].map(palm => {
+    return getPalms().map(palm => {
         return palm.getBoundingClientRect()
     })
+}
+
+export function getPalms() {
+    return [...document.querySelectorAll('[data-palm]')]
 }
 
 function createPalm() {
