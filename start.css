@@ -239,3 +239,177 @@ body {
         transform: translateY(0) ;
     }
 }
+
+
+/* ================== media */
+@media(max-width: 1200px) {
+    /* clouds ========================= */
+.cloud_start-one {
+    position: absolute;
+    right: -4%;
+    top: 130px;
+    height: 8%;
+}
+.cloud_start-two {
+    position: absolute;
+    right: 14%;
+    top: 100px;
+    height: 8%;
+    animation: clouds2 8s ease-in-out infinite 0.5s;
+}
+.cloud_start-three {
+    position: absolute;
+    right: -28px;
+    top: 30px;
+    height: 13%;
+    animation: clouds 4s ease-in-out infinite 0.5s;
+}
+.cloud_start-four {
+    position: absolute;
+    left: 2%;
+    top: 3%;
+    height: 18%;
+}
+.cloud_start-five {
+    position: absolute;
+    left: -1%;
+    top: 16%;
+    height: 10%;
+    animation: clouds 4s ease-in-out infinite 0.5s;
+}
+.cloud_start-six {
+    position: absolute;
+    left: 12%;
+    top: 30%;
+    height: 15%;
+    animation: clouds 4s ease-in-out infinite 0.5s;
+}
+
+.yacht {
+    height: 22%;
+    position: absolute;
+    bottom: 358px;
+    left: 15%;
+    animation: yacht 8s ease-in-out infinite 0.5s;
+}
+
+.palm_start-one {
+    position: absolute;
+    left: -60px;
+    bottom: -119px;
+    height: 50%;
+    animation: palm_start-one 4s ease-in-out infinite 0.5s;
+    transform: scale(-1, 1);
+}
+.palm_start-two {
+    position: absolute;
+    right: -40px;
+    bottom: 100px;
+    height: 63%;
+    animation: palm_start-two 4s ease-in-out infinite 0.5s;
+}
+
+.start_title {
+    width: min-content;
+    margin: 0 auto 15px;
+    padding: 0;
+    text-align: center;
+}
+.start_subtitle {
+    width: 80%;
+    margin: 0 auto 15px;
+}
+}
+@media(max-width: 900px) {
+    .bonnie_start {
+        height: 35%;
+        bottom: 5%;
+    }
+    .palm_start-two {
+        top: 26%;
+        height: 59%;
+    }
+    .sea_waves {
+        height: 8%;
+    }
+    .sea_start {
+        height: 250px;
+    }
+    .cloud_start-four {
+        left: -5%;
+        top: 12%;
+        height: 18%;
+    }
+    .cloud_start-five {
+        top: 25%;
+    }
+}
+@media(max-width: 530px) {
+    .cloud_start-four {
+        left: -5%;
+        top: 0%;
+        height: 11%;
+    }
+    .cloud_start-five {
+        left: -5%;
+        top: 9%;
+        height: 5%;
+    }
+    .cloud_start-six {
+        display: none;
+    }
+    .yacht {
+        left: 10%;
+    }
+    .palm_start-two {
+        top: 34%;
+        height: 42%;
+    }
+    .palm_start-one {
+        left: -126px;
+        bottom: -87px;
+        height: 44%;
+    }
+    .sea_start {
+        bottom: 40px;
+        height: 140px;
+    }
+}
+@media(max-width: 530px) {
+    .palm_start-two {
+        top: 39%;
+        height: 37%;
+    }
+    .yacht  {
+        bottom: 35%;
+        height: 18%;
+        left: 5%;
+    }
+    .palm_start-one {
+        left: -126px;
+        bottom: -62px;
+        height: 38%;
+    }
+    .cloud_start-one {
+        display: none;
+    }
+    .cloud_start-three {
+        right: -60px;
+        top: 28%;
+        height: 10%;
+    }
+    .cloud_start-two {
+        top: 35%;
+        height: 4%;
+    }
+    .sea_start {
+        bottom: 3%;
+        height: 140px;
+    }
+    .start_title {
+        font-size: 70px;
+    }
+    .start_subtitle {
+        font-size: 18px;
+    }
+}

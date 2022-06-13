@@ -29,12 +29,18 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
+    background: url('./media/images/bg_start.png') 50% 50% no-repeat;
+    background-size: cover;
 }
 .score {
     position: absolute;
-    font-size: 3vmin;
-    top: 1vmin;
-    right: 1vmin;
+    font-size: 6vmin;
+    top: 5vmin;
+    right: 5vmin;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    padding: 10px;
 }
 .start_screen {
     position: absolute;
@@ -69,3 +75,4 @@ body {
     left: calc(var(--left) * 1%);
     height: 23%;
 }
+
