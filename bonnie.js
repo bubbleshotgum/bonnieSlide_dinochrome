@@ -20,13 +20,17 @@ export function setupBonnie() {
     currentFrameTime = 0
     yVelocity = 0
     setCustomProperty(bonnieElem, "--bottom", 5)
-    document.removeEventListener("click", onJump)
-    document.addEventListener("click", onJump)
+    document.addEventListener("mousedown", onJump)
+    document.addEventListener("touchstart", onJump)
 }
 
 export function updateBonnie(delta, speedScale) {
     handleRun(delta, speedScale)
     handleJump(delta)
+}
+
+export function getBonnie() {
+    return bonnieElem
 }
 
 export function getBonnieRect() {
@@ -64,7 +68,7 @@ function handleJump(delta) {
 }
 function onJump(e) {
     // if(e.code !== "Space" || isJumping) return
-
+    if(isJumping) return
     yVelocity = jump_speed
     isJumping = true
 }
