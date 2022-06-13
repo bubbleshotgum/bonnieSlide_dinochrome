@@ -5,17 +5,19 @@
     user-select: none;
 }
 @font-face {
-    font-family: "dinpro"; 
-    src: url("fonts/dinpro_light.otf") format("truetype"); 
-    font-weight: 300; 
+    font-family: "Dinpro_medium"; 
+    src: url("../fonts/dinpro_condensedmedium.otf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
 } 
 @font-face {
-    font-family: "dinpro"; 
-    src: url("fonts/dinpro_medium.otf") format("truetype"); 
-    font-weight: 700; 
-}
+    font-family: "Dinpro_light"; 
+    src: url("../fonts/dinpro_condensedlight.otf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
 body {
-    font-family: "dinpro";
+    font-family: "Dinpro_medium";
     font-weight: 300;
     display: flex;
     justify-content: center;
@@ -23,13 +25,15 @@ body {
     height: 100vh;
     overflow: hidden;
     position: relative;
+    color: #fff;
+    text-transform: uppercase;
 }
 .world {
     overflow: hidden;
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: url('./media/images/bg_start.png') 50% 50% no-repeat;
+    background: url('./media/images/game_bg.png') 50% 50% no-repeat;
     background-size: cover;
 }
 .score {
@@ -76,3 +80,63 @@ body {
     height: 23%;
 }
 
+
+.cloud_start-one {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    height: 15%;
+}
+.cloud_start-two {
+    position: absolute;
+    right: 20%;
+    top: 30%;
+    height: 15%;
+}
+.cloud_start-three {
+    position: absolute;
+    left: 35%;
+    top: 14%;
+    height: 25%;
+}
+.cloud_start-four {
+    position: absolute;
+    right: 10%;
+    top: 5%;
+    height: 10%;
+}
+
+@media(max-width: 768px) {
+    .cloud_start-three {
+        left: 20%;
+        height: 18%;
+    }
+    .cloud_start-one {
+        left: 5%;
+        top: 5%;
+        height: 10%;
+    }
+    .cloud_start-two {
+        right: 10%;
+        top: 30%;
+        height: 13%;
+    }
+}
+
+@media(max-width: 500px) {
+    .palm {
+        height: 18%;
+    }
+    .bonnie {
+        height: 25%;
+    }
+    .cloud_start-three {
+        display: none;
+    }
+    .cloud_start-two {
+        height: 7%;
+    }
+    .cloud_start-four {
+        top: 13%;
+    }
+}

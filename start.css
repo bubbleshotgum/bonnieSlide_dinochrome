@@ -50,6 +50,7 @@ body {
     letter-spacing: 3px;
     font-weight: 600;
     margin-bottom: 25px;
+    font-weight: 300;
 }
 .start_btn {
     font-family: "Dinpro_medium";
@@ -240,7 +241,93 @@ body {
     }
 }
 
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #48EAFF;
+    background: url('./media/images/фон.png') 50% 50% no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+}
+.result .start_subtitle {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.btn_wrapper {
+    display: flex;
+    width: 40%;
+    margin: 0 auto;
+    justify-content: space-around;
+    
+}
 
+.result_btn {
+    font-family: "Dinpro_medium";
+    height: 80px;
+    width: 220px;
+    text-transform: uppercase;
+    font-size: 24px;
+    border-radius: 30px;
+    border: 4px solid #000;
+    transition: .3s;
+    background: transparent;
+    cursor: pointer;
+    color: #fff;
+}
+.result_btn:hover {
+    transition: .2s;
+    transform: scale(1.07);
+}
+.result_btn--two {
+    color: #000;
+    background: #fff;
+}
+.palm_result {
+    height: 50%;
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cloud_result-one {
+    position: absolute;
+    right: 3%;
+    top: 45%;
+    height: 8%;
+}
+.cloud_result-two {
+    position: absolute;
+    right: 14%;
+    top: 45%;
+    height: 8%;
+    animation: clouds2 8s ease-in-out infinite 0.5s;
+}
+.cloud_result-three {
+    position: absolute;
+    right: 85px;
+    top: 30%;
+    height: 17%;
+    animation: clouds 4s ease-in-out infinite 0.5s;
+}
+.cloud_result-four {
+    position: absolute;
+    left: 2%;
+    bottom: 20%;
+    height: 30%;
+}
+.cloud_result-five {
+    position: absolute;
+    left: -1%;
+    bottom: 10%;
+    height: 18%;
+    animation: clouds 4s ease-in-out infinite 0.5s;
+}
 /* ================== media */
 @media(max-width: 1200px) {
     /* clouds ========================= */
@@ -319,6 +406,25 @@ body {
     width: 80%;
     margin: 0 auto 15px;
 }
+.result .start_title {
+    width: 70%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.result .start_subtitle {
+    width: 50%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.btn_wrapper {
+    width: 60%;
+}
+.cloud_result-three {
+    top: 52%;
+}
+.cloud_result-two {
+    top: 65%;
+}
 }
 @media(max-width: 900px) {
     .bonnie_start {
@@ -343,8 +449,37 @@ body {
     .cloud_start-five {
         top: 25%;
     }
+    .btn_wrapper {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .result_btn--two {
+        margin-top: 30px;
+    }
+    .cloud_result-four {
+        height: 15%;
+    }
+    .cloud_result-five {
+        height: 9%;
+    }
+    .cloud_result-one {
+        display: none;
+    }
+    .cloud_result-three {
+        right: -65px;
+        top: -2%;
+        height: 13%;
+    }
+    .cloud_result-two {
+        top: 7%;
+        right: 7%;
+    }
+    .palm_result {
+        height: 45%;
+    }
 }
-@media(max-width: 530px) {
+@media(max-width: 760px) {
     .cloud_start-four {
         left: -5%;
         top: 0%;
@@ -374,6 +509,40 @@ body {
         bottom: 40px;
         height: 140px;
     }
+    .result {
+        padding: 100px 30px;
+    }
+    .result .start_title {
+        font-size: 60px;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .result .start_subtitle {
+        width: 100%;
+    }
+    .cloud_result-three {
+        height: 10%;
+    }
+    .cloud_result-two {
+        top: 5%;
+        right: 5%;
+        height: 5%;
+    }
+    .result_btn {
+        font-size: 16px;
+        height: 59px;
+        width: 169px;
+    }
+    .palm_result {
+        height: 40%;
+    }
+    .cloud_result-four {
+        bottom: 23%;
+    }
+    .cloud_result-five {
+        bottom: 17%;
+    }
+    
 }
 @media(max-width: 530px) {
     .palm_start-two {
@@ -407,7 +576,7 @@ body {
         height: 140px;
     }
     .start_title {
-        font-size: 70px;
+        font-size: 46px;
     }
     .start_subtitle {
         font-size: 18px;
