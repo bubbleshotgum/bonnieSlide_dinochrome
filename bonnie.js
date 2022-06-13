@@ -7,7 +7,7 @@ import {
 const bonnieElem = document.querySelector('[data-bonnie]')
 const jump_speed = .40
 const gravity = .0014
-const bonnie_frame_count = 4 
+const bonnie_frame_count = 11
 const frame_time = 100
 
 let isJumping
@@ -34,18 +34,18 @@ export function getBonnieRect() {
 }
 
 export function setBonnieLose() {
-    bonnieElem.src = 'media/images/bonnie_1.png'
+    bonnieElem.src = 'media/images/bonnie_boom.png'
 }
 
 function handleRun(delta, speedScale) {
     if (isJumping) {
-        bonnieElem.src = 'media/images/bonnie1.png'
+        bonnieElem.src = 'media/images/b_1.png'
         return
     }
 
     if (currentFrameTime > frame_time) {
         bonnieFrame = (bonnieFrame + 1) % bonnie_frame_count
-        bonnieElem.src = `media/images/bonnie_${bonnieFrame}.png`
+        bonnieElem.src = `media/images/b_${bonnieFrame}.png `
         currentFrameTime -= frame_time
     }
     currentFrameTime += delta + speedScale
