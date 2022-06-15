@@ -17,6 +17,9 @@
         ]));
         $res = curl_exec($ch);
         curl_close($ch);
+
+        echo json_encode(["message" => $client_id . " " . $client_secret]);
+
         // echo json_encode($res[0]);
         // return json_decode($res);
     } catch(Exception $e) {
