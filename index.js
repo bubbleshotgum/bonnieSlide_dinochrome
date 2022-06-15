@@ -124,7 +124,13 @@ function handleSubmit(e) {
         span.style.color = "#dd3277"
     }
     else
-        fetch("/sheets.php").then(res => res.json()).then(res => console.log(res) )
+        fetch("/sheets.php", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "multipart/form-data"
+            },
+            body: new FormData(document.querySelector("form"))
+        }).then(res => res.json()).then(res => console.log(res) )
 }
 
 function handleLose() {
