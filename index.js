@@ -127,9 +127,13 @@ function handleSubmit(e) {
         fetch("/sheets.php", {
             method: 'POST',
             headers: {
-                "Content-Type": "multipart/form-data"
+                "Content-Type": "application/json;"
             },
-            body: new FormData(document.querySelector("form"))
+            body: JSON.stringify({
+                name: document.querySelector("input#name").value,
+                phone: document.querySelector("input#phone").value,
+                email: document.querySelector("input#email").value
+            })
         }).then(res => res.json()).then(res => console.log(res) )
 }
 
