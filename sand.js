@@ -4,7 +4,7 @@ import {
     incrementCustomProperty, 
 } from './updateCustomProperty.js'
 
-const speed = .08
+const speed = .15
 const sands = document.querySelectorAll('[data-sand]')
 
 export function setupSand() {
