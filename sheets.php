@@ -7,9 +7,6 @@
     
     $payload = file_get_contents('php://input');
     $data = json_decode($payload);
-    echo json_encode($data);
-
-    return 0;
 
     $access_token = null;
     $refresh_token = $_ENV["RefreshToken"];
@@ -56,10 +53,16 @@
 
     try {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $request_uri . "A:A?majorDimension=COLUMNS");
+        curl_setopt($ch, CURLOPT_URL, $request_uri . "'Записи клиентов':append?majorDimension=ROWS&valueInputOption=RAW&insertDataOption=INSERT_ROWS");
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            "Authorization: Bearer " . $access_token
+            "Authorization: Bearer " . $access_token,
+            "Content-Type: application/json"
         ]);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
+            "majorDimension" => "ROWS",
+            "range" => "'Записи клиентов'",
+            "values" => [$next_id, $data->name, $data->phone, $data->email, $data->palms * 100]
+        ]));
     } catch (OAuthException $e) {
         echo json_encode(["message" => "Something went wrong"]);
     }

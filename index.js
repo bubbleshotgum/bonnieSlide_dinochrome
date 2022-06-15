@@ -132,7 +132,8 @@ function handleSubmit(e) {
             body: JSON.stringify({
                 name: document.querySelector("input#name").value,
                 phone: document.querySelector("input#phone").value,
-                email: document.querySelector("input#email").value
+                email: document.querySelector("input#email").value,
+                score
             })
         }).then(res => res.json()).then(res => console.log(res) )
 }
