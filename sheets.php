@@ -1,8 +1,8 @@
 <?php
     require_once realpath(__DIR__ . "/vendor/autoload.php");
 
-    echo $_POST['name'] . " " . $_POST['phone'];
-
+    echo $_POST;
+    return 0;
     use Dotenv\Dotenv;
     $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
@@ -33,9 +33,9 @@
     }
 
     $request_uri = "https://sheets.googleapis.com/v4/spreadsheets/1OPT9rExu4-ILrHDFHF0HZoCzVVa-_4e4rsKrmfRiXR8/values/";
-    
+    $next_id = null;
+
     try {
-        echo json_encode(["message" => $access_token]);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -44,8 +44,20 @@
         curl_setopt($ch, CURLOPT_URL, $request_uri . "A:A?majorDimension=COLUMNS");
         $res = curl_exec($ch);
         $decoded = json_decode($res);
-        echo json_encode($decoded);
+        $last_value = array_slice($decoded->values[0], -1, 1);
+        $next_id = $last_value == "ID" ? 1 : $last_value + 1;
     } catch (OAuthException $e) {
         echo json_encode(["message" => $e]);   
     }
+
+    try {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $request_uri . "A:A?majorDimension=COLUMNS");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            "Authorization: Bearer " . $access_token
+        ]);
+    } catch (OAuthException $e) {
+        echo json_encode(["message" => "Something went wrong"]);
+    }
+
 ?>
