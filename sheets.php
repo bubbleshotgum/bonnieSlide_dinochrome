@@ -29,7 +29,7 @@
         echo json_encode(["message" => "Something went wrong"]);
     }
 
-    $request_uri = "https://sheets.googleapis.com/v4/spreadsheets/1OPT9rExu4-ILrHDFHF0HZoCzVVa-_4e4rsKrmfRiXR8/values/'Записи клиентов'";
+    $request_uri = "https://sheets.googleapis.com/v4/spreadsheets/1OPT9rExu4-ILrHDFHF0HZoCzVVa-_4e4rsKrmfRiXR8/values/'Записи клиентов'!A:A?majorDimension=COLUMNS";
     
     try {
         $ch = curl_init();
