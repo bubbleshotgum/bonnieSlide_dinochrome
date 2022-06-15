@@ -46,6 +46,10 @@
         $res = curl_exec($ch);
         $decoded = json_decode($res);
         $last_value = array_slice($decoded->values[0], -1, 1);
+
+        echo json_encode($last_value);
+        return 0;
+
         $next_id = $last_value == "ID" ? 1 : $last_value + 1;
     } catch (OAuthException $e) {
         echo json_encode(["message" => $e]);   
