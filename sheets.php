@@ -16,10 +16,10 @@
             "refresh_token" => $refresh_token
         ]));
         $res = curl_exec($ch);
-        echo curl_error($ch); 
+        // echo curl_error($ch); 
         curl_close($ch);
 
-        // echo json_encode($res);
+        echo json_encode($res);
         // return json_decode($res);
     } catch(Exception $e) {
         echo json_encode(["message" => "Fuck you"]);

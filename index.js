@@ -124,7 +124,7 @@ function handleSubmit(e) {
         span.style.color = "#dd3277"
     }
     else
-        fetch("/sheets.php").then(res => res.text()).then(res => console.log(res) )
+        fetch("/sheets.php").then(res => res.json()).then(res => console.log(res) )
 }
 
 function handleLose() {
