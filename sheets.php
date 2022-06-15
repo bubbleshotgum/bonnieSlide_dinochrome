@@ -62,7 +62,7 @@
         curl_setopt($ch, CURLOPT_POSTFIELDS, array(
             "majorDimension" => "ROWS",
             "range" => "A$next_id:E$next_id",
-            "values" => array($next_id, $data->name, $data->phone, $data->email, $data->palms * 100)
+            "values" => array($next_id, $data->name, $data->phone, $data->email, $data->score * 100)
         ));
         curl_exec($ch);
         curl_close($ch);
