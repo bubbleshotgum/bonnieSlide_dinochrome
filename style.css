@@ -81,25 +81,25 @@ body {
 }
 
 
-.cloud_start-one {
+.cloud_game-one {
     position: absolute;
     left: 10%;
     top: 10%;
     height: 15%;
 }
-.cloud_start-two {
+.cloud_game-two {
     position: absolute;
     right: 20%;
     top: 30%;
     height: 15%;
 }
-.cloud_start-three {
+.cloud_game-three {
     position: absolute;
     left: 35%;
     top: 14%;
     height: 25%;
 }
-.cloud_start-four {
+.cloud_game-four {
     position: absolute;
     right: 10%;
     top: 5%;
@@ -107,16 +107,16 @@ body {
 }
 
 @media(max-width: 768px) {
-    .cloud_start-three {
+    .cloud_game-three {
         left: 20%;
         height: 18%;
     }
-    .cloud_start-one {
+    .cloud_game-one {
         left: 5%;
         top: 5%;
         height: 10%;
     }
-    .cloud_start-two {
+    .cloud_game-two {
         right: 10%;
         top: 30%;
         height: 13%;
@@ -135,13 +135,13 @@ body {
     .sand {
         height: 25%;
     }
-    .cloud_start-three {
+    .cloud_game-three {
         display: none;
     }
-    .cloud_start-two {
+    .cloud_game-two {
         height: 7%;
     }
-    .cloud_start-four {
+    .cloud_game-four {
         top: 13%;
     }
 }
