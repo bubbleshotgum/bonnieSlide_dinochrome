@@ -56,15 +56,14 @@
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $request_uri . "Sheet1:append?majorDimension=ROWS&valueInputOption=RAW&insertDataOption=INSERT_ROWS");
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            "Authorization: Bearer " . $access_token,
-            "Content-Type: application/json"
+            "Authorization: Bearer " . $access_token
         ]);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
+        curl_setopt($ch, CURLOPT_POSTFIELDS, array(
             "majorDimension" => "ROWS",
             "range" => "Sheet1",
             "values" => array($next_id, $data->name, $data->phone, $data->email, $data->palms * 100)
-        )));
+        ));
         curl_exec($ch);
         curl_close($ch);
     } catch (OAuthException $e) {
