@@ -19,7 +19,7 @@ export function setupBonnie() {
     bonnieFrame = 0
     currentFrameTime = 0
     yVelocity = 0
-    setCustomProperty(bonnieElem, "--bottom", 10)
+    setCustomProperty(bonnieElem, "--bottom", 13)
     document.addEventListener("mousedown", onJump)
     document.addEventListener("touchstart", onJump)
 }
@@ -59,8 +59,8 @@ function handleJump(delta) {
     if(!isJumping) return
     incrementCustomProperty(bonnieElem, "--bottom", yVelocity * delta)
 
-    if(getCustomProperty(bonnieElem, "--bottom") <= 10) {
-        setCustomProperty(bonnieElem, "--bottom", 10)
+    if(getCustomProperty(bonnieElem, "--bottom") <= 13) {
+        setCustomProperty(bonnieElem, "--bottom", 13)
         isJumping = false
     }
 
