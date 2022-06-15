@@ -1,5 +1,5 @@
 <?php
-    $refresh_token = $_ENV["RefreshTOKEN"];
+    $refresh_token = $_ENV["RefreshToken"];
     $client_id = $_ENV["ClientID"];
     $client_secret = $_ENV["ClientSecret"];
     $refresh_uri = "https://accounts.google.com/o/oauth2/token";
