@@ -14,6 +14,9 @@
             "grant_type" => "refresh_token"
         ]));
         $res = curl_exec($ch);
+
+        echo json_encode(["message" => $refresh_token . " " . $client_id . " " . $client_secret]);
+
         curl_close($ch);
     } catch(Exception $e) {
         echo json_encode(["message" => "Something went wrong"]);
