@@ -73,7 +73,7 @@ body {
 }
 .palm {
     
-    bottom: 8%;
+    bottom: 10%;
     /* --left: 0; */
     position: absolute;
     left: calc(var(--left) * 1%);
@@ -125,11 +125,11 @@ body {
 
 @media(max-width: 500px) {
     .palm {
-        height: 13%;
+        height: 5%;
         bottom: 10;
     }
     .bonnie {
-        height: 15%;
+        height: 5%;
         bottom: 10;
     }
     .sand {
