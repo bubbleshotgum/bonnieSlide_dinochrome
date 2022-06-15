@@ -5,8 +5,8 @@ import {
 } from './updateCustomProperty.js'
 
 const bonnieElem = document.querySelector('[data-bonnie]')
-const jump_speed = .40
-const gravity = .0014
+const jump_speed = .33
+const gravity = .0013
 const bonnie_frame_count = 11
 const frame_time = 100
 
