@@ -54,12 +54,13 @@
 
     try {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $request_uri . "Sheet1:append?majorDimension=ROWS&valueInputOption=RAW&insertDataOption=INSERT_ROWS");
+        curl_setopt($ch, CURLOPT_URL, $request_uri . "Sheet1:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS");
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer " . $access_token
         ]);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+            "majorDimension" => "ROWS",
             "range" => "Sheet1",
             "values" => array($next_id, $data->name, $data->phone, $data->email, $data->palms * 100)
         ));
