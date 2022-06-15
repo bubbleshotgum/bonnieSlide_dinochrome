@@ -1,7 +1,7 @@
 <?php
     require_once realpath(__DIR__ . "/vendor/autoload.php");
 
-    echo json_encode($_POST);
+    echo json_encode($_REQUEST);
     return 0;
     use Dotenv\Dotenv;
     $dotenv = Dotenv::createImmutable(__DIR__);
