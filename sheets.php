@@ -54,14 +54,14 @@
 
     try {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $request_uri . "$next_id:$next_id:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS");
+        curl_setopt($ch, CURLOPT_URL, $request_uri . "A$next_id:E$next_id:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS");
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer " . $access_token
         ]);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, array(
             "majorDimension" => "ROWS",
-            "range" => "$next_id:$next_id",
+            "range" => "A$next_id:E$next_id",
             "values" => array($next_id, $data->name, $data->phone, $data->email, $data->palms * 100)
         ));
         curl_exec($ch);
