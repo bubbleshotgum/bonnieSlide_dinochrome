@@ -29,7 +29,15 @@ const startScreenElem = document.querySelector('[data-start-screen]')
 
 // setPixelToWorldScale()
 // window.addEventListener('resize', setPixelToWorldScale)
-document.addEventListener("click", handleStart, {once: true})
+const startScreenButton = document.querySelector(".start_btn")
+const startScreen = document.querySelector(".start")
+startScreenButton.addEventListener("click", () => {
+    startScreen.classList.add("hide")
+    document.querySelector(".world").classList.remove("hide")
+    setTimeout(() => {
+        document.addEventListener("click", handleStart, {once: true})
+    }, 500)
+}, {once: true})
 
 
 let lastTime
@@ -106,30 +114,36 @@ function handleStart() {
     window.requestAnimationFrame(update)
 }
 
+function handleSubmit(e) {
+    e.preventDefault()
+
+    if(document.querySelector('input:invalid'))
+    {
+        const span = document.querySelector('.overlay_form-title > span')
+        span.innerHTML = "Данные введены неверно<br>Проверь правильность телефона и почты"
+        span.style.color = "#dd3277"
+    }
+    else
+        fetch("/sheets.php").then(res => res.text()).then(res => console.log(res) )
+}
+
 function handleLose() {
     setBonnieLose()
-    setTimeout(() => {
-      document.addEventListener("click", handleStart, { once: true })
-      startScreenElem.classList.remove("hide")
-    }, 100)
-    const uri = "https://sheets.googleapis.com/v4/spreadsheets/1OPT9rExu4-ILrHDFHF0HZoCzVVa-_4e4rsKrmfRiXR8/values/'Записи клиентов'"
-    fetch(uri + "!A:A?majorDimension=COLUMNS", {headers: {"Authorization": "Bearer ya29.a0ARrdaM_t0tkWGP3DGPhsTt_y7-upoB97yrRaBsPgfFwILDMOnYQ5ozE0zev80cJE4MM_gM4uuS5mNE1rLlckyE4rkqHoOLRmgg04sNYXPUds3KM-UGwOLf1aeyf-u_b3HROObo3uOwkLK2dmyERuVzdm0h1M"}}).then(res => res.json()).then(res => {
-        const newID = res.values[0].length === 1 ? 1 : + res.values[0].at(-1) + 1
-        fetch(uri + ":append?valueInputOption=RAW&insertDataOption=INSERT_ROWS&includeValuesInResponse=true&responseValueRenderOption=FORMATTED_VALUE&responseDateTimeRenderOption=SERIAL_NUMBER", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer ya29.a0ARrdaM_t0tkWGP3DGPhsTt_y7-upoB97yrRaBsPgfFwILDMOnYQ5ozE0zev80cJE4MM_gM4uuS5mNE1rLlckyE4rkqHoOLRmgg04sNYXPUds3KM-UGwOLf1aeyf-u_b3HROObo3uOwkLK2dmyERuVzdm0h1M"
-            },
-            body: JSON.stringify({
-                range: "'Записи клиентов'",
-                majorDimension: "ROWS",
-                values: [
-                    [newID, "Иванов Иван Иванович", "+7 (123) 456-78-90", "ex@mple.com", score * 100]
-                ]
-            })
-        }).then(res => res.json()).then(res => console.log(res)).catch(res => console.warn(res))
-    }).catch(res => console.warn(res))
+    if(score === 0)
+    {
+        startScreenElem.textContent = "побробуй еще раз"
+        
+        setTimeout(() => {
+        document.addEventListener("click", handleStart, { once: true })
+        startScreenElem.classList.remove("hide")
+        }, 100)
+    }
+    else {
+        document.querySelector(".world").classList.add("hide")
+        document.querySelector(".overlay_form").classList.remove("hide")
+
+        document.querySelector("form").addEventListener("submit", handleSubmit)
+    }
 }
 
 function setPixelToWorldScale() {

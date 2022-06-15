@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bonnit & Slide</title>
     <link rel="stylesheet" href="start.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <section class="start">
@@ -17,7 +18,7 @@
             </div>
 
             <button class="start_btn">
-                <a href="game.html">играть</a>
+                играть
             </button>
         </div>
 
@@ -47,6 +48,82 @@
         
     </section>
 
+    <div class="world hide" data-world>
+
+        <img class="cloud_game-three" src="media/images/облако 2.png" alt="">
+        <img class="cloud_game-one" src="media/images/облако.png" alt="">
+        <img class="cloud_game-two" src="media/images/облако.png" alt="">
+        <img class="cloud_game-four" src="media/images/облако.png" alt="">
+
+        <div class="score" data-score>0</div>
+
+        <!-- start_game -->
+        <div class="start_screen" data-start-screen>кликни по экрану</div>
+
+        <!-- sand -->
+        <img class="sand" src="media/images/пляж_1.png" data-sand alt="">
+        <img class="sand" src="media/images/пляж_1.png" data-sand alt="">
+
+        <!-- Bonnie -->
+        <img class="bonnie" src="media/images/bonnie1.png" alt="" data-bonnie>
+    </div>
+
+    <div class="overlay_form hide">
+        <div class="overlay_form-title overlay_form-title--one">
+            1 пальма = 100 рублей и твоя скидка  на все курсы Бонни и Слайд
+        </div>
+        <div class="overlay_form-title overlay_form-title--two">
+            и самое убойное
+        </div>
+        <div style="font-weight: 600;" class="overlay_form-title">
+            <span>Оставляй свои контакты и получи путёвку на море</span>
+        </div>
+        <form action="" method="post">
+            <label for="name">Имя</label>
+            <input
+            class="input"
+                pattern="[а-яА-Яa-zA-Z]+ ?[а-яА-Яa-zA-Z]+"
+                title="Имя с фамилией по желанию"
+                required
+                id="name"
+                name="name"
+                type="text">
+            <label for="phone">Телефон</label>
+            <input
+            class="input"
+                title="Номер телефона в формате +7 (999) 999-9999"
+                required
+                id="phone"
+                name="phone"
+                type="text">
+            <label for="email">Email</label>
+            <input
+            class="input"
+                pattern="[^@.\s]+@[^@.\s]+\.\w+"
+                title="Адрес электронной почты. Пример: ex@mple.com"
+                required
+                id="email"
+                name="email"
+                type="text">
+            <button class="form_btn">
+                Отправить
+            </button>
+        </form>
+
+        <img class="palm_form" src="media/images/palm1.png" alt="">
+        <img class="palm_form--two" src="media/images/palm1.png" alt="">
+    </div>
+
     <script src="index.js" type="module"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script src="jquery-maskedinput.js"></script>
+    <script type="text/javascript">
+        // $(document).on("ready",function(){
+            $("#phone").mask("+7 (999) 999-9999", { placeholder: "+7 (___) ___-____" })
+        // })
+    </script>
 </body>
 </html>
