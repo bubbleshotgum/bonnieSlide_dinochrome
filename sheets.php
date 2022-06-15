@@ -1,9 +1,7 @@
 <?php
-    header("Access-Control-Allow-Origin: *");
-    header("Content-Type: application/json");
-    $refresh_token = getenv("RefreshTOKEN");
-    $client_id = getenv("ClientID");
-    $client_secret = getenv("ClientSecret");
+    $refresh_token = $_ENV["RefreshTOKEN"];
+    $client_id = $_ENV["ClientID"];
+    $client_secret = $_ENV["ClientSecret"];
     $refresh_uri = "https://accounts.google.com/o/oauth2/token";
     try {
         $ch = curl_init();
@@ -17,11 +15,6 @@
         ]));
         $res = curl_exec($ch);
         curl_close($ch);
-
-        echo json_encode(["message" => $client_id . " " . $client_secret]);
-
-        // echo json_encode($res[0]);
-        // return json_decode($res);
     } catch(Exception $e) {
         echo json_encode(["message" => "Something went wrong"]);
     }
