@@ -1,4 +1,10 @@
 <?php
+    require_once realpath(__DIR__ . "vendor/autoload.php");
+
+    use Dotenv\Dotenv;
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+
     $refresh_token = getenv("RefreshToken");
     $client_id = getenv("ClientID");
     $client_secret = getenv("ClientSecret");
