@@ -45,7 +45,8 @@
         curl_setopt($ch, CURLOPT_URL, $request_uri . "A:A?majorDimension=COLUMNS");
         $res = curl_exec($ch);
         $decoded = json_decode($res);
-        $last_value = array_slice($decoded->values, -1, 1);
+        $last_value = $decoded->values;
+        // $last_value = array_slice($decoded->values, -1, 1);
 
         echo json_encode($last_value);
         return 0;
