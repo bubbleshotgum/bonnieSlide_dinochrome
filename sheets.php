@@ -34,7 +34,7 @@
     $request_uri = "https://sheets.googleapis.com/v4/spreadsheets/1OPT9rExu4-ILrHDFHF0HZoCzVVa-_4e4rsKrmfRiXR8/values/";
     
     try {
-
+        echo json_encode(["message" => $access_token]);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer " . $access_token
