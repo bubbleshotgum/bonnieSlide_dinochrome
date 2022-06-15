@@ -129,7 +129,7 @@ function handleSubmit(e) {
             headers: {
                 "Content-Type": "multipart/form-data"
             },
-            body: new FormData(document.querySelector("form"))
+            body: [...new FormData(document.querySelector("form"))]
         }).then(res => res.json()).then(res => console.log(res) )
 }
 
