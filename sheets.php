@@ -59,6 +59,7 @@
             "Authorization: Bearer " . $access_token,
             "Content-Type: application/json"
         ]);
+        curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
             "majorDimension" => "ROWS",
             "range" => "'Записи клиентов'",
