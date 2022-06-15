@@ -1,11 +1,15 @@
 <?php
     require_once realpath(__DIR__ . "/vendor/autoload.php");
 
-    echo json_encode($_REQUEST);
-    return 0;
     use Dotenv\Dotenv;
     $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
+    
+    $payload = file_get_contents('php://input');
+    $data = json_decode($payload);
+    echo json_encode($data);
+
+    return 0;
 
     $access_token = null;
     $refresh_token = $_ENV["RefreshToken"];
