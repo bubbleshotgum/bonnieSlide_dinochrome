@@ -1,7 +1,7 @@
 <?php
-    $refresh_token = $_ENV["RefreshToken"];
-    $client_id = $_ENV["ClientID"];
-    $client_secret = $_ENV["ClientSecret"];
+    $refresh_token = getenv("RefreshToken");
+    $client_id = getenv("ClientID");
+    $client_secret = getenv("ClientSecret");
     $refresh_uri = "https://accounts.google.com/o/oauth2/token";
     try {
         $ch = curl_init();
