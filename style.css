@@ -125,10 +125,15 @@ body {
 
 @media(max-width: 500px) {
     .palm {
-        height: 18%;
+        height: 13%;
+        bottom: 5;
     }
     .bonnie {
-        height: 25%;
+        height: 15%;
+        bottom: 10;
+    }
+    .sand {
+        height: 17%;
     }
     .cloud_start-three {
         display: none;
