@@ -16,12 +16,11 @@
             "refresh_token" => $refresh_token
         ]));
         $res = curl_exec($ch);
-        echo json_encode(["message" => curl_error($ch)]);
         curl_close($ch);
         // echo json_encode($res[0]);
         // return json_decode($res);
     } catch(Exception $e) {
-        echo json_encode(["message" => "Fuck you"]);
+        echo json_encode(["message" => "Something went wrong"]);
     }
 
     // $request_uri = "https://sheets.googleapis.com/v4/spreadsheets/1OPT9rExu4-ILrHDFHF0HZoCzVVa-_4e4rsKrmfRiXR8/values/'Записи клиентов'";
