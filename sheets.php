@@ -54,7 +54,7 @@
 
     try {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $request_uri . "A$next_id:E$next_id:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS");
+        curl_setopt($ch, CURLOPT_URL, $request_uri . "A$next_id:E$next_id:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS&includeValuesInResponse=true");
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer " . $access_token
         ]);
