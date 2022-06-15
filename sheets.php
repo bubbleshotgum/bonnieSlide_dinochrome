@@ -64,6 +64,8 @@
             "range" => "'Записи клиентов'",
             "values" => [$next_id, $data->name, $data->phone, $data->email, $data->palms * 100]
         ]));
+        curl_exec($ch);
+        curl_close($ch);
     } catch (OAuthException $e) {
         echo json_encode(["message" => "Something went wrong"]);
     }
