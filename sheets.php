@@ -54,7 +54,7 @@
 
     try {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $request_uri . "'Записи клиентов':append?majorDimension=ROWS&valueInputOption=RAW&insertDataOption=INSERT_ROWS");
+        curl_setopt($ch, CURLOPT_URL, $request_uri . "Sheet1:append?majorDimension=ROWS&valueInputOption=RAW&insertDataOption=INSERT_ROWS");
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer " . $access_token,
             "Content-Type: application/json"
@@ -62,7 +62,7 @@
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
             "majorDimension" => "ROWS",
-            "range" => "'Записи клиентов'",
+            "range" => "Sheet1",
             "values" => [$next_id, $data->name, $data->phone, $data->email, $data->palms * 100]
         ]));
         curl_exec($ch);
