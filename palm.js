@@ -4,7 +4,7 @@ import {
     incrementCustomProperty, 
 } from './updateCustomProperty.js'
 
-const speed = .05
+const speed = .08
 const palm_interval_min = 1500
 const palm_interval_max = 3000
 const worldElem = document.querySelector('[data-world]')
