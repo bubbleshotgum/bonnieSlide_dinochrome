@@ -10,8 +10,8 @@
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
             "client_id" => $client_id,
             "client_secret" => $client_secret,
-            "grant_type" => "refresh_token",
-            "refresh_token" => $refresh_token
+            "refresh_token" => $refresh_token,
+            "grant_type" => "refresh_token"
         ]));
         $res = curl_exec($ch);
         curl_close($ch);
