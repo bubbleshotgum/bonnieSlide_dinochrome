@@ -22,6 +22,8 @@
         ]));
         $res = curl_exec($ch);
         curl_close($ch);
+
+        echo json_encode(["token" => $res["access_token"]]);
     } catch(Exception $e) {
         echo json_encode(["message" => "Something went wrong"]);
     }
