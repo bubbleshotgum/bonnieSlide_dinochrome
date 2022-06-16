@@ -3,7 +3,7 @@ import {
     incrementCustomProperty, 
 } from './updateCustomProperty.js'
 
-const speed = .08
+const speed = .15
 
 const initial_palm_interval_min = 1500
 const initial_palm_interval_max = 2700
@@ -18,7 +18,7 @@ window.addEventListener('changeInterval', () => {
     palm_interval_max -= palm_interval_max > 600 ? 300 : 0
 })
 
-window.addEventListener('resestInterval', () => {
+window.addEventListener('resetInterval', () => {
     palm_interval_min = initial_palm_interval_min
     palm_interval_max = initial_palm_interval_max
 })
