@@ -48,21 +48,21 @@
         $last_value = array_slice($decoded->values[0], -1, 1)[0];
 
         $next_id = $last_value == "ID" ? 1 : $last_value + 1;
-        echo $next_id;
     } catch (OAuthException $e) {
         echo json_encode(["message" => $e]);   
     }
 
     try {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $request_uri . "A$next_id:E$next_id:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS&includeValuesInResponse=true");
+        curl_setopt($ch, CURLOPT_URL, $request_uri . "A".($next_id+1).":E".($next_id+1).":append?valueInputOption=RAW&insertDataOption=INSERT_ROWS&includeValuesInResponse=true");
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            "Authorization: Bearer " . $access_token
+            "Authorization: Bearer " . $access_token,
+            "Content-Type: application/json"
         ]);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, array(
             "majorDimension" => "ROWS",
-            "range" => "A$next_id:E$next_id",
+            "range" => "A".($next_id+1).":E".($next_id+1),
             "values" => array($next_id, $data->name, $data->phone, $data->email, $data->score * 100)
         ));
         curl_exec($ch);
