@@ -52,7 +52,6 @@
     } catch (OAuthException $e) {
         echo json_encode(["message" => $e]);   
     }
-    echo json_encode(array($next_id, $data->name, $data->phone, $data->email, $data->score * 100));
     try {
         $values = array($next_id, $data->name, $data->phone, $data->email, $data->score * 100);
         $payload = json_encode(array(
@@ -68,9 +67,12 @@
             "Content-Type: application/json"
         ]);
         curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-        curl_exec($ch);
+        $res = curl_exec($ch);
         curl_close($ch);
+        $decoded = json_decode($res);
+        echo json_encode($decoded);
     } catch (OAuthException $e) {
         echo json_encode(["message" => "Something went wrong"]);
     }
