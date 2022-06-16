@@ -48,6 +48,7 @@
         $last_value = array_slice($decoded->values[0], -1, 1)[0];
 
         $next_id = $last_value == "ID" ? 1 : $last_value + 1;
+        echo $next_id;
     } catch (OAuthException $e) {
         echo json_encode(["message" => $e]);   
     }
