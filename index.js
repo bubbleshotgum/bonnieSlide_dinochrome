@@ -31,6 +31,22 @@ const startScreenElem = document.querySelector('[data-start-screen]')
 // window.addEventListener('resize', setPixelToWorldScale)
 const startScreenButton = document.querySelector(".start_btn")
 const startScreen = document.querySelector(".start")
+const resultScreen = document.querySelector(".result")
+const resultPlayButton = document.querySelector(".result .play-button")
+const resultFormButton = document.querySelector(".result .result_btn--two")
+
+document.querySelector("form").addEventListener("submit", handleSubmit)
+
+resultPlayButton.addEventListener('click', () => {
+    resultScreen.classList.add("hide")
+    document.querySelector(".world").classList.remove("hide")
+})
+
+resultFormButton.addEventListener("click", () => {
+    resultScreen.classList.add("hide")
+    document.querySelector(".overlay_form").classList.remove("hide")
+})
+
 startScreenButton.addEventListener("click", () => {
     startScreen.classList.add("hide")
     document.querySelector(".world").classList.remove("hide")
@@ -38,6 +54,7 @@ startScreenButton.addEventListener("click", () => {
         document.addEventListener("click", handleStart, {once: true})
     }, 500)
 }, {once: true})
+
 
 
 let lastTime
@@ -150,10 +167,18 @@ function handleLose() {
         }, 100)
     }
     else {
-        document.querySelector(".world").classList.add("hide")
-        document.querySelector(".overlay_form").classList.remove("hide")
+        const suffix = document.querySelector(".suffix-span")
+        document.querySelector(".score-number-span").textContent = score
+        if(score % 10 === 1 && Math.floor(score / 10) != 1)
+            suffix.textContent = "у"
+        else if(score % 10 < 5 && Math.floor(score / 10) != 1)
+            suffix.textContent = "ы"
+        else
+            suffix.textContent = ""
 
-        document.querySelector("form").addEventListener("submit", handleSubmit)
+        document.querySelector(".world").classList.add("hide")
+        document.querySelector(".result").classList.remove("hide")
+
     }
 }
 
