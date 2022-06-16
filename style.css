@@ -65,7 +65,7 @@ body {
     height: 20%;
 }
 .bonnie {
-    --bottom: 5;
+    --bottom: 13;
     position: absolute;
     left: 1%;
     height: 30%;
@@ -73,7 +73,7 @@ body {
 }
 .palm {
     
-    bottom: 10%;
+    bottom: 11%;
     /* --left: 0; */
     position: absolute;
     left: calc(var(--left) * 1%);
@@ -125,12 +125,12 @@ body {
 
 @media(max-width: 500px) {
     .palm {
-        height: 5%;
-        bottom: 10;
+        height: 13%;
+        /* bottom: 10; */
     }
     .bonnie {
-        height: 5%;
-        bottom: 10;
+        height: 15%;
+        /* bottom: 10; */
     }
     .sand {
         height: 25%;

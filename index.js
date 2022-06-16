@@ -21,7 +21,7 @@ import { getCustomProperty } from './updateCustomProperty.js'
 
 const world_width = 100
 const world_height = 100
-const speedScale_inc = .00005
+const speedScale_inc = .00003
 
 const worldElem = document.querySelector('[data-world]')
 const scoreElem = document.querySelector('[data-score]')
@@ -122,6 +122,7 @@ function updateScore() {
 
 function updatespeedScale(delta) {
     speedScale += delta * speedScale_inc
+
 }
 
 function handleStart() {
