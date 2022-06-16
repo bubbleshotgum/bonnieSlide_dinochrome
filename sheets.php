@@ -64,7 +64,7 @@
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
             "majorDimension" => "ROWS",
             "range" => "A$row:E$row",
-            "values" => array($next_id, $data->name, $data->phone, $data->email, $data->score * 100)
+            "values" => json_encode(array($next_id, $data->name, $data->phone, $data->email, $data->score * 100))
         )));
         curl_exec($ch);
         curl_close($ch);
