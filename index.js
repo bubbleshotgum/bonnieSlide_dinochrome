@@ -197,7 +197,7 @@ function handleLose() {
 
         const suffix = document.querySelector(".suffix-span")
         document.querySelector(".score-number-span").textContent = score
-        document.querySelector(".-discount-span").textContent = score * 100
+        document.querySelector(".discount-span").textContent = score * 100
         if(score % 10 === 1 && Math.floor(score / 10) != 1)
             suffix.textContent = "у"
         else if(score % 10 < 5 && score % 10 != 0 && Math.floor(score / 10) != 1)
