@@ -52,7 +52,7 @@
     } catch (OAuthException $e) {
         echo json_encode(["message" => $e]);   
     }
-
+    echo json_encode(array($next_id, $data->name, $data->phone, $data->email, $data->score * 100));
     try {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $request_uri . "A$row:E$row:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS&includeValuesInResponse=true");
@@ -61,11 +61,11 @@
             "Content-Type: application/json"
         ]);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
             "majorDimension" => "ROWS",
             "range" => "A$row:E$row",
             "values" => array($next_id, $data->name, $data->phone, $data->email, $data->score * 100)
-        ));
+        )));
         curl_exec($ch);
         curl_close($ch);
     } catch (OAuthException $e) {
