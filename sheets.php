@@ -58,7 +58,7 @@
         $payload = json_encode(array(
             "majorDimension" => "ROWS",
             "range" => "A$row:E$row",
-            "values" => $values
+            "values" => array($values)
         ));
 
         $ch = curl_init();
