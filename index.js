@@ -191,7 +191,7 @@ function handleLose() {
         document.querySelector(".score-number-span").textContent = score
         if(score % 10 === 1 && Math.floor(score / 10) != 1)
             suffix.textContent = "у"
-        else if(score % 10 < 5 && Math.floor(score / 10) != 1)
+        else if(score % 10 < 5 && score % 10 != 0 && Math.floor(score / 10) != 1)
             suffix.textContent = "ы"
         else
             suffix.textContent = ""
