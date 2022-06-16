@@ -3,7 +3,7 @@ import {
     incrementCustomProperty, 
 } from './updateCustomProperty.js'
 
-const speed = .15
+const speed = .1
 
 const initial_palm_interval_min = 1500
 const initial_palm_interval_max = 2700
