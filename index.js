@@ -54,6 +54,7 @@ resultFormButton.addEventListener("click", () => {
 })
 
 startScreenButton.addEventListener("click", () => {
+    startScreenElem.textContent = "кликни по экрану"
     startScreenElem.classList.remove("hide")
     startScreen.classList.add("hide")
     document.querySelector(".world").classList.remove("hide")
