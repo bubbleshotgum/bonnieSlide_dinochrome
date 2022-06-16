@@ -59,7 +59,7 @@ startScreenButton.addEventListener("click", () => {
     setTimeout(() => {
         document.addEventListener("click", handleStart, {once: true})
     }, 500)
-}, {once: true})
+})
 
 
 
@@ -111,6 +111,9 @@ function checkPalmBorderFadeOnDelete() {
         {
             palm.remove()
             score++
+
+            if(score % 3 === 0)
+            dispatchEvent(new Event("changeInterval"))
         }
     })
 }
@@ -126,6 +129,8 @@ function updatespeedScale(delta) {
 }
 
 function handleStart() {
+    dispatchEvent(new Event("resetInterval"))
+
     lastTime = null
     speedScale = 1
     score = 0
@@ -159,7 +164,13 @@ function handleSubmit(e) {
                 email: document.querySelector("input#email").value,
                 score
             })
-        }).then(res => res.json()).then(res => console.log(res) )
+        }).then(res => res.json()).then(() => {
+            [...document.querySelectorAll("form input")].forEach(input => input.value = "")
+            setTimeout(() => {    
+                document.querySelector(".overlay_form").classList.add("hide")
+                startScreen.classList.remove("hide")
+            }, 200)
+        })
 }
 
 function handleLose() {
