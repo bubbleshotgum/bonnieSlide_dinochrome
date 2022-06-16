@@ -187,6 +187,14 @@ function handleLose() {
         }, 100)
     }
     else {
+        resultPlayButton.setAttribute("disabled", "disabled")
+        resultFormButton.setAttribute("disabled", "disabled")
+
+        setTimeout(() => {
+            resultPlayButton.removeAttribute("disabled")
+            resultPlayButton.removeAttribute("disabled")
+        }, 600)
+
         const suffix = document.querySelector(".suffix-span")
         document.querySelector(".score-number-span").textContent = score
         if(score % 10 === 1 && Math.floor(score / 10) != 1)
