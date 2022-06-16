@@ -38,6 +38,10 @@ const resultFormButton = document.querySelector(".result .result_btn--two")
 document.querySelector("form").addEventListener("submit", handleSubmit)
 
 resultPlayButton.addEventListener('click', () => {
+    startScreenElem.textContent = "кликни по экрану"
+    document.addEventListener("click", handleStart, { once: true })
+    startScreenElem.classList.remove("hide")
+
     resultScreen.classList.add("hide")
     document.querySelector(".world").classList.remove("hide")
 })
