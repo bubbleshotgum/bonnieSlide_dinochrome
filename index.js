@@ -54,6 +54,8 @@ resultFormButton.addEventListener("click", () => {
 })
 
 startScreenButton.addEventListener("click", () => {
+    backgroundAudio.play()
+
     startScreenElem.textContent = "Кликните по экрану и перепрыгивайте через пальмы"
     startScreenElem.classList.remove("hide")
     startScreen.classList.add("hide")
@@ -68,6 +70,9 @@ startScreenButton.addEventListener("click", () => {
 let lastTime
 let speedScale
 let score
+
+
+const backgroundAudio = document.querySelector(".background_audio")
 
 function update(time) {
     if (lastTime == null) {
