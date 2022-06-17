@@ -1,13 +1,27 @@
 import {
-    getCustomProperty,
     setCustomProperty, 
     incrementCustomProperty, 
 } from './updateCustomProperty.js'
 
-const speed = .15
-const palm_interval_min = 1500
-const palm_interval_max = 3000
+const speed = .1
+
+const initial_palm_interval_min = 1500
+const initial_palm_interval_max = 2700
+
+let 
+    palm_interval_min = initial_palm_interval_min,
+    palm_interval_max = initial_palm_interval_max
 const worldElem = document.querySelector('[data-world]')
+
+window.addEventListener('changeInterval', () => {
+    palm_interval_min -= palm_interval_min > 100 ? 200 : 0
+    palm_interval_max -= palm_interval_max > 600 ? 300 : 0
+})
+
+window.addEventListener('resetInterval', () => {
+    palm_interval_min = initial_palm_interval_min
+    palm_interval_max = initial_palm_interval_max
+})
 
 let nextPalmTime = null
 export function setupPalm() {
