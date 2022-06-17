@@ -106,6 +106,7 @@ body {
     height: 10%;
 }
 
+
 @media(max-width: 768px) {
     .cloud_game-three {
         left: 20%;
