@@ -39,7 +39,7 @@ document.querySelector("form").addEventListener("submit", handleSubmit)
 
 resultPlayButton.addEventListener('click', () => {
     setTimeout(() => {
-        startScreenElem.textContent = "кликните по экрану"
+        startScreenElem.textContent = "Кликните по экрану и перепрыгивайте через пальмы"
         document.addEventListener("click", handleStart, { once: true })
         startScreenElem.classList.remove("hide")
 
@@ -54,7 +54,7 @@ resultFormButton.addEventListener("click", () => {
 })
 
 startScreenButton.addEventListener("click", () => {
-    startScreenElem.textContent = "кликните по экрану"
+    startScreenElem.textContent = "Кликните по экрану и перепрыгивайте через пальмы"
     startScreenElem.classList.remove("hide")
     startScreen.classList.add("hide")
     document.querySelector(".world").classList.remove("hide")

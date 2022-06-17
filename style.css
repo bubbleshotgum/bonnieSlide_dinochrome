@@ -48,10 +48,13 @@ body {
 }
 .start_screen {
     position: absolute;
-    font-size: 5vmin;
+    font-size: 4.5vmin;
     top: 50%;
+    text-align: center;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-transform: lowercase;
+    color: #FF0452;
 }
 
 input:invalid {
