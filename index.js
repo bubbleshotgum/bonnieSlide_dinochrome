@@ -39,7 +39,7 @@ document.querySelector("form").addEventListener("submit", handleSubmit)
 
 resultPlayButton.addEventListener('click', () => {
     setTimeout(() => {
-        startScreenElem.textContent = "кликни по экрану"
+        startScreenElem.textContent = "кликните по экрану"
         document.addEventListener("click", handleStart, { once: true })
         startScreenElem.classList.remove("hide")
 
@@ -54,7 +54,7 @@ resultFormButton.addEventListener("click", () => {
 })
 
 startScreenButton.addEventListener("click", () => {
-    startScreenElem.textContent = "кликни по экрану"
+    startScreenElem.textContent = "кликните по экрану"
     startScreenElem.classList.remove("hide")
     startScreen.classList.add("hide")
     document.querySelector(".world").classList.remove("hide")
@@ -151,7 +151,7 @@ function handleSubmit(e) {
     if(document.querySelector('input:invalid'))
     {
         const span = document.querySelector('.overlay_form-title > span')
-        span.innerHTML = "Данные введены неверно<br>Проверь правильность телефона и почты"
+        span.innerHTML = "Данные введены неверно<br>Проверьте правильность телефона и почты"
         span.style.color = "#dd3277"
     }
     else
@@ -179,7 +179,7 @@ function handleLose() {
     setBonnieLose()
     if(score === 0)
     {
-        startScreenElem.textContent = "побробуй еще раз"
+        startScreenElem.textContent = "побробуйте еще раз"
         
         setTimeout(() => {
         document.addEventListener("click", handleStart, { once: true })
