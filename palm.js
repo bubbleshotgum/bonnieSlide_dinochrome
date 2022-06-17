@@ -14,8 +14,8 @@ let
 const worldElem = document.querySelector('[data-world]')
 
 window.addEventListener('changeInterval', () => {
-    palm_interval_min -= palm_interval_min > 100 ? 200 : 0
-    palm_interval_max -= palm_interval_max > 600 ? 300 : 0
+    palm_interval_min -= palm_interval_min > 500 ? 100 : 0
+    palm_interval_max -= palm_interval_max > 800 ? 300 : 0
 })
 
 window.addEventListener('resetInterval', () => {

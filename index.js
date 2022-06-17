@@ -141,6 +141,10 @@ function handleStart() {
     setupBonnie()
     setupPalm()
 
+    const div = document.querySelector('.overlay_form-title--two')
+    div.textContent = "и самое убойное"
+    div.style.color = "#fff"
+
     startScreenElem.classList.add('hide')
     window.requestAnimationFrame(update)
 }
@@ -150,9 +154,9 @@ function handleSubmit(e) {
 
     if(document.querySelector('input:invalid'))
     {
-        const span = document.querySelector('.overlay_form-title > span')
-        span.innerHTML = "Данные введены неверно<br>Проверьте правильность телефона и почты"
-        span.style.color = "#dd3277"
+        const div = document.querySelector('.overlay_form-title--two')
+        div.textContent = "Данные введены неверно. Проверьте правильность введенных данных"
+        div.style.color = "#dd3277"
     }
     else
         fetch("/sheets.php", {
